@@ -1,6 +1,6 @@
 package application;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import utilities.Account;
 
@@ -8,25 +8,20 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Scanner input = new Scanner(System.in);
-
 		Account acc;
 		int accountNumber;
 		double initialDeposit = 0;
-		String accountHolder;
+		String accountHolder, initialDPBoolean;
 
-		System.out.println("Enter account number: ");
-		accountNumber = input.nextInt();
-		input.nextLine();
-		System.out.println("Enter account holder: ");
-		accountHolder = input.nextLine();
+		accountNumber = Integer.parseInt(JOptionPane.showInputDialog("Enter account number: "));
 
-		System.out.println("Is there a initial deposit (y/n)? ");
+		accountHolder = JOptionPane.showInputDialog("Enter account holder: ");
 
-		if (input.nextLine().equalsIgnoreCase("y")) {
+		initialDPBoolean = JOptionPane.showInputDialog("Is there a initial deposit (y/n)? ");
 
-			System.out.println("Enter initial deposit value: ");
-			initialDeposit = input.nextDouble();
+		if (initialDPBoolean.equalsIgnoreCase("y")) {
+
+			initialDeposit = Double.parseDouble(JOptionPane.showInputDialog("Enter initial deposit value: "));
 
 			acc = new Account(accountHolder, accountNumber, initialDeposit);
 
@@ -35,34 +30,19 @@ public class Main {
 			acc = new Account(accountHolder, accountNumber);
 		}
 
-		System.out.println();
+		JOptionPane.showMessageDialog(null, "Account data: " + "\n" + acc);
 
-		System.out.println("Account data: ");
-		System.out.println(acc);
-
-		System.out.println();
-
-		System.out.println("Enter a deposit value: ");
-		double deposit = input.nextDouble();
+		double deposit = Double.parseDouble(JOptionPane.showInputDialog("Enter a deposit value: "));
 
 		acc.deposit(deposit);
 
-		System.out.println("Updated account data: ");
-		System.out.println(acc);
+		JOptionPane.showMessageDialog(null, "Updated account data: " + "\n" + acc);
 
-		System.out.println();
-
-		System.out.println("Enter a withdraw value: ");
-		double withdraw = input.nextDouble();
+		double withdraw = Double.parseDouble(JOptionPane.showInputDialog("Enter a withdraw value: "));
 
 		acc.withdraw(withdraw);
 
-		System.out.println("Updated account data: ");
-		System.out.println(acc);
-
-		System.out.println(acc.getBalance());
-
-		input.close();
+		JOptionPane.showMessageDialog(null, "Updated account data: " + "\n" + acc);
 
 	}
 
