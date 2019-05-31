@@ -15,6 +15,7 @@ public class Program {
 		Statement st = null;
 
 		try {
+
 			conn = DB.getConnection();
 
 			conn.setAutoCommit(false);

@@ -16,6 +16,7 @@ public class Program {
 		ResultSet rs = null;
 
 		try {
+
 			conn = DB.getConnection();
 
 			st = conn.createStatement();

@@ -14,6 +14,7 @@ public class Program {
 		PreparedStatement st = null;
 
 		try {
+
 			conn = DB.getConnection();
 
 			st = conn.prepareStatement("UPDATE SELLER SET BaseSalary = BaseSalary + ?" + "WHERE (DepartmentId = ?)");
