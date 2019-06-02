@@ -27,9 +27,6 @@ public class Program {
 			System.out.println("Done! Rows affected: " + rowsAffected);
 		} catch (SQLException e) {
 			throw new DbIntegrityException(e.getMessage());
-		} finally {
-			DB.closeStatement(st);
-			DB.closeConnection();
 		}
 	}
 }
